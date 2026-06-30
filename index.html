@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flavia's Little Sprouts — Family Daycare · Novato, CA</title>
+<meta name="description" content="Licensed family daycare in Novato, CA. Small-group care where every child feels safe, loved, and inspired. Ages 4 months to 3 years." />
+
+<!-- Favicon -->
+<link rel="icon" type="image/jpeg" href="logo.jpeg" />
+<link rel="apple-touch-icon" href="logo.jpeg" />
+
+<!-- Open Graph / WhatsApp / Facebook preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Flavia's Little Sprouts — Family Daycare · Novato, CA" />
+<meta property="og:description" content="Licensed family daycare in Novato, CA. Small-group care where every child feels safe, loved & inspired. Ages 4 months to 3 years." />
+<meta property="og:image" content="hero.png" />
+<meta property="og:url" content="https://flaviaslittlesprouts.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FAF7F4;--cream-dark:#F0EDE8;--green:#4E7C5A;--green-light:#6B9E78;
+  --green-dark:#35553E;--green-pale:#EBF2ED;--gold:#C9A84C;
+  --text:#1A1A1A;--muted:#6B6B6B;--light:#9B9B9B;
+  --white:#fff;--border:#E5DDD5;
+  --shadow:0 2px 20px rgba(0,0,0,.06);--shadow-md:0 8px 40px rgba(0,0,0,.10)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500}
+.label{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:14px}
+.container{max-width:1160px;margin:0 auto;padding:0 40px}
+section{padding:100px 0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:82px;background:rgba(250,247,244,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;display:flex;align-items:center}
+.nav-in{width:100%;max-width:1160px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo img{height:64px;width:64px;object-fit:cover;border-radius:50%}
+.nav-logo-name{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--green-dark);line-height:1.2}
+.nav-logo-sub{font-size:.62rem;color:var(--muted);letter-spacing:.07em;text-transform:uppercase}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.btn{background:var(--green);color:#fff;padding:11px 26px;border-radius:100px;font-size:.82rem;font-weight:500;transition:background .2s,transform .15s;border:none;cursor:pointer;display:inline-block}
+.btn:hover{background:var(--green-dark);transform:translateY(-1px)}
+.btn-ghost{color:var(--green);font-size:.85rem;font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.btn-ghost:hover{gap:10px}
+
+/* HERO */
+#hero{min-height:100vh;padding-top:82px;display:flex;align-items:center;background:var(--cream);position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:0;right:0;width:44%;height:100%;background:var(--green-pale);clip-path:ellipse(80% 100% at 100% 50%);z-index:0}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%}
+.hero-in h1{font-size:clamp(2.6rem,4vw,3.8rem);line-height:1.13;margin-bottom:22px}
+.hero-in h1 em{font-style:italic;color:var(--green)}
+.hero-in p{font-size:1rem;color:var(--muted);margin-bottom:38px;max-width:480px;line-height:1.75}
+.hero-ctas{display:flex;align-items:center;gap:30px}
+.hero-img-wrap{position:relative}
+.hero-img{width:100%;aspect-ratio:4/5;background:var(--cream-dark);border-radius:24px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.photo-ph{width:100%;height:100%;background:linear-gradient(135deg,var(--cream-dark),#DDD5C8);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--light);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;gap:8px}
+.photo-ph svg{opacity:.3}
+.hero-badge{position:absolute;bottom:32px;left:-24px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:12px}
+.hero-badge-icon{width:44px;height:44px;background:var(--green-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.hero-badge strong{display:block;font-size:.9rem}
+.hero-badge span{font-size:.72rem;color:var(--muted)}
+.hero-stat{position:absolute;top:32px;right:-16px;background:var(--green);border-radius:16px;padding:20px 24px;color:#fff;text-align:center}
+.hero-stat strong{display:block;font-family:'Playfair Display',serif;font-size:2rem}
+.hero-stat span{font-size:.72rem;opacity:.85}
+
+/* ABOUT */
+#about{background:var(--white)}
+.about-in{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img-wrap{position:relative}
+.about-img{width:100%;aspect-ratio:3/4;background:var(--cream-dark);border-radius:24px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.about-circle{position:absolute;bottom:-24px;right:-24px;width:160px;height:160px;background:var(--green-pale);border-radius:50%;z-index:-1}
+.about-content h2{font-size:clamp(2rem,3vw,2.8rem);margin-bottom:18px;line-height:1.2}
+.about-content p{color:var(--muted);margin-bottom:14px;font-size:.94rem;line-height:1.75}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:28px 0}
+.val{display:flex;align-items:center;gap:10px;font-size:.875rem;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
+.stats{display:flex;gap:32px;padding-top:28px;border-top:1px solid var(--border)}
+.stats strong{display:block;font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--green)}
+.stats span{font-size:.78rem;color:var(--muted)}
+
+/* SECTION HEADER */
+.sec-head{text-align:center;max-width:600px;margin:0 auto 60px}
+.sec-head h2{font-size:clamp(2rem,3vw,2.8rem);margin-bottom:14px}
+.sec-head p{color:var(--muted);font-size:.94rem;line-height:1.7}
+
+/* WHY */
+#why{background:var(--cream)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--white);border-radius:20px;padding:32px;border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.card-icon{width:52px;height:52px;border-radius:14px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.4rem}
+.card h3{font-family:'Inter',sans-serif;font-size:.93rem;font-weight:600;margin-bottom:8px}
+.card p{font-size:.86rem;color:var(--muted);line-height:1.65}
+
+/* SCHEDULE */
+#schedule{background:var(--green-dark);color:#fff}
+#schedule .label{color:var(--gold)}
+#schedule .sec-head h2{color:#fff}
+#schedule .sec-head p{color:rgba(255,255,255,.6)}
+.sched-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sched-item{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px;transition:background .2s}
+.sched-item:hover{background:rgba(255,255,255,.13)}
+.sched-time{font-size:.7rem;font-weight:600;letter-spacing:.08em;color:var(--gold);margin-bottom:7px}
+.sched-item h4{font-family:'Inter',sans-serif;font-weight:600;font-size:.92rem;margin-bottom:5px;color:#fff}
+.sched-item p{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.5}
+
+/* SAFETY */
+#safety{background:var(--white)}
+.safety-in{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.safety-content h2{font-size:clamp(2rem,3vw,2.8rem);margin-bottom:14px}
+.safety-content>p{color:var(--muted);margin-bottom:36px;font-size:.94rem;line-height:1.75}
+.safety-list{display:flex;flex-direction:column;gap:18px}
+.saf-item{display:flex;gap:14px;align-items:flex-start}
+.saf-check{width:34px;height:34px;border-radius:50%;background:var(--green-pale);color:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:600}
+.saf-item h4{font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;margin-bottom:3px}
+.saf-item p{font-size:.82rem;color:var(--muted);line-height:1.5}
+.safety-img-wrap{position:relative}
+.safety-img{width:100%;aspect-ratio:4/5;background:var(--cream-dark);border-radius:24px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.safety-badge{position:absolute;bottom:32px;left:-24px;background:var(--green);color:#fff;border-radius:16px;padding:20px 24px;text-align:center}
+.safety-badge strong{display:block;font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:4px}
+.safety-badge span{font-size:.73rem;opacity:.85}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--cream)}
+.stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;margin-bottom:14px}
+.card blockquote{font-size:.875rem;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:22px}
+.t-author strong{display:block;font-size:.86rem;font-weight:600}
+.t-author span{font-size:.77rem;color:var(--muted)}
+
+/* GALLERY */
+#gallery{background:var(--white);padding:80px 0}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gal-item{background:var(--cream-dark);border-radius:14px;overflow:hidden;aspect-ratio:1}
+.gal-item:nth-child(1){grid-column:span 2;aspect-ratio:2/1}
+.gal-item:nth-child(6){grid-column:span 2;aspect-ratio:2/1}
+.gal-item .photo-ph{height:100%}
+
+/* VISIT */
+#visit{background:var(--cream)}
+.visit-in{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.visit-content h2{font-size:clamp(2rem,3vw,2.8rem);margin-bottom:14px}
+.visit-content>p{color:var(--muted);margin-bottom:36px;font-size:.94rem}
+.contact-list{display:flex;flex-direction:column;gap:22px;margin-bottom:36px}
+.c-item{display:flex;gap:14px;align-items:flex-start}
+.c-icon{width:44px;height:44px;border-radius:12px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.c-item h4{font-family:'Inter',sans-serif;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--light);margin-bottom:4px}
+.c-item p{font-size:.93rem;line-height:1.5}
+.c-item a{color:var(--green)}
+.map-wrap{border-radius:20px;overflow:hidden;height:360px}
+.map-wrap iframe{width:100%;height:100%;border:none}
+
+/* ENROLLMENT */
+#enrollment{background:var(--white)}
+.enroll-in{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.enroll-in h2{font-size:clamp(1.8rem,2.5vw,2.4rem);margin-bottom:10px}
+.enroll-in>div>p{color:var(--muted);margin-bottom:32px;font-size:.9rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-full{grid-column:span 2}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:.76rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
+.field input,.field select,.field textarea{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:12px 15px;font-family:'Inter',sans-serif;font-size:.86rem;color:var(--text);outline:none;transition:border-color .2s;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green)}
+.field textarea{resize:vertical;min-height:96px}
+.btn-submit{width:100%;background:var(--green);color:#fff;border:none;border-radius:100px;padding:14px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:500;cursor:pointer;transition:background .2s,transform .15s;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-submit:hover{background:var(--green-dark);transform:translateY(-1px)}
+.opt-title{font-family:'Inter',sans-serif;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
+.opt-cards{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.opt{background:var(--cream);border:1px solid var(--border);border-radius:14px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,transform .15s}
+.opt:hover{border-color:var(--green);transform:translateX(4px)}
+.opt h4{font-family:'Inter',sans-serif;font-weight:600;font-size:.88rem;margin-bottom:3px}
+.opt p{font-size:.78rem;color:var(--muted)}
+.opt-time{text-align:right;flex-shrink:0}
+.opt-time strong{display:block;font-size:.84rem;color:var(--green);font-weight:600}
+.opt-time span{font-size:.73rem;color:var(--muted)}
+.direct{background:var(--green-pale);border-radius:16px;padding:22px}
+.direct-item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:.9rem}
+.direct-item:last-child{border-bottom:none}
+.direct-item span:first-child{font-size:1.1rem}
+
+/* FAQ */
+#faq{background:var(--cream)}
+.faq-in{max-width:720px;margin:0 auto}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;padding:20px 26px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.89rem;font-weight:500;color:var(--text)}
+.faq-icon{width:26px;height:26px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .2s;font-size:1rem;color:var(--green)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a-in{padding:0 26px 20px;font-size:.86rem;color:var(--muted);line-height:1.7}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--green-pale)}
+.faq-item.open .faq-a{max-height:400px}
+
+/* FOOTER */
+footer{background:var(--text);color:#fff;padding:80px 0 40px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:36px}
+.f-brand-name{font-family:'Playfair Display',serif;font-size:1.15rem;display:block;margin-bottom:10px}
+.f-brand p{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.7;max-width:250px;margin-bottom:22px}
+.f-social{display:flex;gap:10px}
+.f-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:border-color .2s,background .2s}
+.f-social a:hover{border-color:var(--green-light);background:rgba(110,158,120,.2)}
+.f-col h4{font-family:'Inter',sans-serif;font-size:.73rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:18px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.f-col li a{font-size:.86rem;color:rgba(255,255,255,.65);transition:color .2s}
+.f-col li a:hover{color:#fff}
+.f-contact-item{display:flex;gap:10px;margin-bottom:11px;font-size:.86rem;color:rgba(255,255,255,.65);align-items:flex-start}
+.f-contact-item span:first-child{opacity:.45;flex-shrink:0;margin-top:2px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.77rem;color:rgba(255,255,255,.35)}
+
+/* LOGO DIVIDER */
+.logo-divider{padding:56px 0;background:var(--cream-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.logo-divider img{width:120px;height:120px;object-fit:cover;border-radius:50%;box-shadow:0 8px 32px rgba(78,124,90,.18)}
+.logo-divider-text{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green-dark);letter-spacing:.03em}
+.logo-divider-sub{font-size:.75rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+/* HERO LOGO */
+.hero-logo-wrap{display:flex;justify-content:center;margin-bottom:24px}
+.hero-logo-wrap img{width:160px;height:160px;object-fit:cover;border-radius:50%;box-shadow:0 12px 48px rgba(78,124,90,.2)}
+/* FOOTER LOGO */
+.f-logo-img{width:90px;height:90px;object-fit:cover;border-radius:50%;margin-bottom:16px;box-shadow:0 4px 20px rgba(255,255,255,.1)}
+/* WHATSAPP */
+.wa-float{position:fixed;bottom:30px;right:30px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+
+@media(max-width:920px){.nav-cta-btn{display:none}}
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* MOBILE MENU DRAWER */
+.mobile-menu{display:none;position:fixed;top:82px;left:0;right:0;bottom:0;background:rgba(250,247,244,.98);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--text);transition:color .2s}
+.mobile-menu a:hover{color:var(--green)}
+.mobile-menu .btn{font-family:'Inter',sans-serif;font-size:1rem;margin-top:12px}
+
+/* SCROLL ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:920px){
+  .container{padding:0 24px}
+  section{padding:70px 0}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:flex}
+  .hero-in,.about-in,.safety-in,.visit-in,.enroll-in{grid-template-columns:1fr;gap:48px}
+  .hero-img-wrap{display:none}
+  .hero-in h1{font-size:2.4rem}
+  .grid-3,.sched-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-item:nth-child(1),.gal-item:nth-child(6){grid-column:span 1;aspect-ratio:1}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+  .form-grid{grid-template-columns:1fr}
+  .form-full{grid-column:span 1}
+}
+@media(max-width:600px){
+  .grid-3,.sched-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .stats{flex-wrap:wrap;gap:20px}
+  .hero-in h1{font-size:2rem}
+  .hero-logo-wrap img{width:120px;height:120px}
+}
+</style>
+<link rel="canonical" href="https://flaviaslittlesprouts.com/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ChildCare",
+  "name": "Flavia's Little Sprouts",
+  "url": "https://flaviaslittlesprouts.com/",
+  "telephone": "+1-415-246-0309",
+  "email": "Flaviaslittlesprouts@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "412 Wood Hollow Dr",
+    "addressLocality": "Novato",
+    "addressRegion": "CA",
+    "postalCode": "94945",
+    "addressCountry": "US"
+  },
+  "areaServed": "Marin County, California",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "07:30",
+    "closes": "17:30"
+  },
+  "priceRange": "Contact for pricing"
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a href="#" class="nav-logo">
+      <img src="logo.jpeg" alt="Flavia's Little Sprouts" />
+      <div>
+        <div class="nav-logo-name">Flavia's Little Sprouts</div>
+        <div class="nav-logo-sub">Family Daycare · Novato, CA</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#schedule">Programs</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a href="#enrollment" class="btn nav-cta-btn">Book a Tour</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#schedule" class="mobile-link">Programs</a>
+  <a href="#testimonials" class="mobile-link">Testimonials</a>
+  <a href="#visit" class="mobile-link">Visit</a>
+  <a href="#enrollment" class="btn mobile-link">Book a Tour</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-in">
+      <div>
+        <div class="hero-logo-wrap">
+          <img src="logo.jpeg" alt="Flavia's Little Sprouts" />
+        </div>
+        <span class="label">Novato · Marin County</span>
+        <h1>Where Your Child Feels Safe, <em>Loved &amp; Inspired</em> Every Day</h1>
+        <p>Small-group care in Novato—where curiosity is celebrated and every child feels at home. Experience the warmth of family daycare with professional standards.</p>
+        <div class="hero-ctas">
+          <a href="#enrollment" class="btn">Schedule a Tour →</a>
+          <a href="#schedule" class="btn-ghost">See the Schedule →</a>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <div class="hero-img">
+          <img src="baby-ballpit.jpg" alt="Happy child at Flavia's Little Sprouts" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-icon">🌱</div>
+          <div>
+            <strong>Licensed Daycare</strong>
+            <span>Marin County, CA</span>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <strong>10+</strong>
+          <span>Years of Experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-in">
+      <div class="about-img-wrap">
+        <div class="about-img">
+          <img src="hero.png" alt="Flávia with a child" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="about-circle"></div>
+      </div>
+      <div class="about-content">
+        <span class="label">About Us</span>
+        <h2>Meet Flávia</h2>
+        <p>My love for caring for children began within my own family, with the arrival of my grandchildren. Being part of their growth, giving them love, attention, and care made me realize how special this calling truly is. And little by little, I began to wonder: why not extend this love and care to other families as well?</p>
+        <p>Over the years, I had the opportunity to work in daycare settings and also care for children within wonderful families, and each experience only made my passion grow stronger. Every child I met touched my heart in a unique way and confirmed what I already felt deep inside — caring for children is what I truly love to do.</p>
+        <p>Flavia's Little Sprouts was born from this love: a warm, family-centered space created with affection, patience, kindness, and genuine care. My goal is for every child to feel safe, welcomed, loved, and happy here — just like family.</p>
+        <div class="values">
+          <div class="val"><div class="dot"></div>Safety First</div>
+          <div class="val"><div class="dot"></div>Emotional Care</div>
+          <div class="val"><div class="dot"></div>Respect</div>
+          <div class="val"><div class="dot"></div>Structure</div>
+          <div class="val"><div class="dot"></div>Healthy Routines</div>
+          <div class="val"><div class="dot"></div>Joyful Learning</div>
+        </div>
+        <div class="stats">
+          <div><strong>10+</strong><span>Years Experience</span></div>
+          <div><strong>3</strong><span>Grandchildren</span></div>
+          <div><strong>Small</strong><span>Group Size</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="sec-head">
+      <span class="label">Why Choose Us</span>
+      <h2>Why Parents Trust Us</h2>
+      <p>We understand that choosing childcare is one of the most important decisions you'll make. Here's why Marin County families choose Flavia's Little Sprouts.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><div class="card-icon">👨‍👩‍👧</div><h3>Small Group Care</h3><p>Limited enrollment ensures each child receives personalized attention tailored to their unique needs.</p></div>
+      <div class="card"><div class="card-icon">💛</div><h3>Personalized Attention</h3><p>Every child is seen as an individual. We celebrate their strengths and support their growth areas.</p></div>
+      <div class="card"><div class="card-icon">✨</div><h3>Safe &amp; Clean Environment</h3><p>Immaculate spaces with childproofing, regular sanitization, and strict safety protocols.</p></div>
+      <div class="card"><div class="card-icon">🌟</div><h3>Experienced Caregiver</h3><p>Years of professional experience combined with the wisdom and warmth of a loving grandmother.</p></div>
+      <div class="card"><div class="card-icon">📲</div><h3>Strong Communication</h3><p>Daily updates with photos and notes keep you connected and informed about your child's day.</p></div>
+      <div class="card"><div class="card-icon">🏡</div><h3>Warm Family Environment</h3><p>A true home away from home where children feel secure, loved, and valued every single day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO DIVIDER -->
+<div class="logo-divider">
+  <img src="logo.jpeg" alt="Flavia's Little Sprouts" />
+  <div class="logo-divider-text">Flavia's Little Sprouts</div>
+  <div class="logo-divider-sub">Growing with Love &amp; Care</div>
+</div>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="container">
+    <div class="sec-head">
+      <span class="label">Daily Routine</span>
+      <h2>A Day at Flávia's</h2>
+      <p>Children thrive on predictable routines. Our daily schedule provides structure while allowing flexibility for spontaneous learning moments.</p>
+    </div>
+    <div class="sched-grid">
+      <div class="sched-item"><div class="sched-time">7:30 – 8:00</div><h4>Morning Arrival</h4><p>Warm welcome, free play, and settling in</p></div>
+      <div class="sched-item"><div class="sched-time">8:00 – 9:00</div><h4>Circle Time</h4><p>Songs, calendar, and daily plan discussion</p></div>
+      <div class="sched-item"><div class="sched-time">9:00 – 10:00</div><h4>Learning Centers</h4><p>Rotating activities focused on development</p></div>
+      <div class="sched-item"><div class="sched-time">10:00 – 10:30</div><h4>Healthy Snack</h4><p>Fresh fruits, whole grains, and hydration</p></div>
+      <div class="sched-item"><div class="sched-time">10:30 – 11:30</div><h4>Outdoor Play</h4><p>Yard time, nature exploration, motor skills</p></div>
+      <div class="sched-item"><div class="sched-time">11:30 – 12:00</div><h4>Creative Activity</h4><p>Art, music, or sensory projects</p></div>
+      <div class="sched-item"><div class="sched-time">12:00 – 12:30</div><h4>Lunch Time</h4><p>Nutritious homemade meal together</p></div>
+      <div class="sched-item"><div class="sched-time">12:30 – 2:30</div><h4>Rest &amp; Nap</h4><p>Quiet time for recharging energy</p></div>
+      <div class="sched-item"><div class="sched-time">2:30 – 3:00</div><h4>Afternoon Snack</h4><p>Light refreshment after rest</p></div>
+      <div class="sched-item"><div class="sched-time">3:00 – 4:00</div><h4>Afternoon Play</h4><p>Child-led activities and free exploration</p></div>
+      <div class="sched-item"><div class="sched-time">4:00 – 5:30</div><h4>Wind Down &amp; Pick-up</h4><p>Calm activities and parent greetings</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section id="safety">
+  <div class="container">
+    <div class="safety-in">
+      <div class="safety-content">
+        <span class="label">Your Peace of Mind</span>
+        <h2>Safety &amp; Cleanliness</h2>
+        <p>Nothing matters more than your child's safety. We've implemented comprehensive protocols to ensure a secure, healthy environment where children thrive.</p>
+        <div class="safety-list">
+          <div class="saf-item"><div class="saf-check">✓</div><div><h4>Background Verified</h4><p>Comprehensive background checks completed</p></div></div>
+          <div class="saf-item"><div class="saf-check">✓</div><div><h4>CPR &amp; First Aid Certified</h4><p>Up-to-date certifications for emergency response</p></div></div>
+          <div class="saf-item"><div class="saf-check">✓</div><div><h4>Child-Safe Environment</h4><p>Thoroughly childproofed spaces and equipment</p></div></div>
+          <div class="saf-item"><div class="saf-check">✓</div><div><h4>Daily Sanitization</h4><p>Rigorous cleaning protocols throughout the day</p></div></div>
+          <div class="saf-item"><div class="saf-check">✓</div><div><h4>Healthy Nutrition</h4><p>Fresh, balanced meals prepared on-site daily</p></div></div>
+          <div class="saf-item"><div class="saf-check">✓</div><div><h4>Constant Supervision</h4><p>Attentive oversight during all activities</p></div></div>
+        </div>
+      </div>
+      <div class="safety-img-wrap">
+        <div class="safety-img">
+          <img src="care.jpg" alt="Flávia caring for a child" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="safety-badge"><strong>Licensed</strong><span>Family Daycare</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="sec-head">
+      <img src="logo.jpeg" alt="Flavia's Little Sprouts" style="width:88px;height:88px;object-fit:cover;border-radius:50%;margin:0 auto 20px;box-shadow:0 6px 24px rgba(78,124,90,.16)" />
+      <span class="label">What Families Say</span>
+      <h2>Hear From Our Families</h2>
+      <p>From Marin County families who have entrusted their children to Flávia's care.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><div class="stars">★★★★★</div><blockquote>"Flávia has been an absolute blessing for our family. Emma runs to the door every morning with the biggest smile. The daily updates and photos give us such peace of mind during work hours."</blockquote><div class="t-author"><strong>Sarah &amp; Michael Chen</strong><span>Parents of Emma · Marin County</span></div></div>
+      <div class="card"><div class="stars">★★★★★</div><blockquote>"As a first-time mom of twins, I was incredibly anxious about daycare. Flávia's warm, grandmotherly approach immediately put me at ease. My boys have flourished in every way."</blockquote><div class="t-author"><strong>Jennifer Walsh</strong><span>San Rafael · Marin County</span></div></div>
+      <div class="card"><div class="stars">★★★★★</div><blockquote>"The level of care and attention our son receives is extraordinary. Flávia treats every child like her own grandchild. We've seen remarkable growth in Oliver's social skills."</blockquote><div class="t-author"><strong>David &amp; Lisa Thompson</strong><span>Mill Valley · Marin County</span></div></div>
+      <div class="card"><div class="stars">★★★★★</div><blockquote>"Finding quality infant care in Marin was challenging until we discovered Flávia. Her experience with early childhood development is evident in everything she does."</blockquote><div class="t-author"><strong>Amanda Foster</strong><span>Corte Madera · Marin County</span></div></div>
+      <div class="card"><div class="stars">★★★★★</div><blockquote>"We toured several daycares before choosing Flávia. The difference was immediate—her space is immaculate, her routines are thoughtful, and her love for every child is genuine."</blockquote><div class="t-author"><strong>Robert &amp; Elena Martinez</strong><span>Larkspur · Marin County</span></div></div>
+      <div class="card"><div class="stars">★★★★★</div><blockquote>"Flávia's communication is exceptional. Daily reports, photos, and quick responses make us feel connected throughout the day. She has become family to us."</blockquote><div class="t-author"><strong>Kate Henderson</strong><span>Tiburon · Marin County</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom:40px">
+      <span class="label">Gallery</span>
+      <h2>Moments of Joy</h2>
+      <p>Glimpses of daily life at Flavia's Little Sprouts—where learning meets happiness.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item"><img src="room.jpg" alt="Daycare playroom" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="painting.jpg" alt="Art and painting activity" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="gal5.png" alt="Daycare moment" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="gal1.png" alt="Arts and crafts" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="gal2.png" alt="Outdoor play" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="gal3.png" alt="Lunch time" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="gal4.png" alt="Building blocks" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="about.png" alt="Flávia and child" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="gal1.png" alt="Arts and crafts" style="width:100%;height:100%;object-fit:cover" /></div>
+      <div class="gal-item"><img src="gal2.png" alt="Outdoor play" style="width:100%;height:100%;object-fit:cover" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visit">
+  <div class="container">
+    <div class="visit-in">
+      <div class="visit-content">
+        <span class="label">Visit Us</span>
+        <h2>Come See Our Space</h2>
+        <p>We'd love to show you around! Schedule a tour to meet Flávia, see the play areas, explore the yard, and get all your questions answered.</p>
+        <div class="contact-list">
+          <div class="c-item">
+            <div class="c-icon">📍</div>
+            <div><h4>Address</h4><p>412 Wood Hollow Dr<br>Novato, CA 94945</p></div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">🕐</div>
+            <div><h4>Hours</h4><p>Monday – Friday<br>7:30 AM – 5:30 PM</p></div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">📞</div>
+            <div><h4>Contact</h4><p><a href="tel:4152460309">(415) 246-0309</a><br><a href="mailto:Flaviaslittlesprouts@gmail.com">Flaviaslittlesprouts@gmail.com</a></p></div>
+          </div>
+        </div>
+        <a href="#enrollment" class="btn">Book a Tour →</a>
+      </div>
+      <div>
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=412+Wood+Hollow+Dr,+Novato,+CA+94945&output=embed"
+            allowfullscreen="" loading="lazy"
+            title="Flavia's Little Sprouts — Novato CA">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLLMENT -->
+<section id="enrollment">
+  <div class="container">
+    <div class="enroll-in">
+      <div>
+        <span class="label">Enrollment</span>
+        <h2>Get In Touch</h2>
+        <p>Ready to join our family? Fill out the form and Flávia will get back to you within one business day.</p>
+        <form class="form-grid" action="https://formsubmit.co/Flaviaslittlesprouts@gmail.com" method="POST" id="contact-form">
+          <input type="hidden" name="_subject" value="New Tour Request — Flavia's Little Sprouts" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="" />
+          <input type="hidden" name="_template" value="table" />
+          <div class="field"><label>Your Name</label><input type="text" name="name" placeholder="Full name" required /></div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="email@example.com" required /></div>
+          <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="(415) 000-0000" /></div>
+          <div class="field"><label>Child's Age</label><input type="text" name="childs_age" placeholder="e.g., 2 years" /></div>
+          <div class="field form-full"><label>Message</label><textarea name="message" placeholder="Tell us about your child and what you're looking for..."></textarea></div>
+          <div class="form-full"><button type="submit" class="btn-submit" id="submit-btn">Send Message →</button></div>
+        </form>
+      </div>
+      <div>
+        <p class="opt-title">Enrollment Options</p>
+        <div class="opt-cards">
+          <div class="opt"><div><h4>Full-Time</h4><p>Monday – Friday</p></div><div class="opt-time"><strong>7:30 AM – 5:30 PM</strong><span>5 days/week</span></div></div>
+          <div class="opt"><div><h4>Part-Time (3 days)</h4><p>Flexible days</p></div><div class="opt-time"><strong>7:30 AM – 3:30 PM</strong><span>3 days/week</span></div></div>
+          <div class="opt"><div><h4>Part-Time (2 days)</h4><p>Flexible days</p></div><div class="opt-time"><strong>7:30 AM – 3:30 PM</strong><span>2 days/week</span></div></div>
+        </div>
+        <div class="direct">
+          <p class="opt-title" style="margin-bottom:14px">Contact Directly</p>
+          <div class="direct-item"><span>📞</span><div><strong>Call or Text</strong><br><a href="tel:4152460309" style="color:var(--green)">(415) 246-0309</a></div></div>
+          <div class="direct-item"><span>✉️</span><div><strong>Email</strong><br><a href="mailto:Flaviaslittlesprouts@gmail.com" style="color:var(--green)">Flaviaslittlesprouts@gmail.com</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-in">
+      <div class="sec-head" style="margin:0 0 44px">
+        <span class="label">FAQ</span>
+        <h2>Common Questions</h2>
+        <p>Find answers to frequently asked questions about our daycare.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What ages do you accept?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-in">We accept children from 4 months to 3 years old. We welcome infants and toddlers and provide age-appropriate care for each stage of development.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are your operating hours?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-in">We are open Monday through Friday, from 7:30 AM to 5:30 PM. We are closed on major holidays—parents are notified in advance.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What meals and snacks are provided?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-in">We provide a morning snack, a nutritious homemade lunch, and an afternoon snack. All meals are prepared fresh on-site. Please inform us of any dietary restrictions or allergies.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do you ensure safety?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-in">We maintain a licensed, background-verified, CPR &amp; First Aid certified environment. Our space is fully childproofed, sanitized daily, and under constant supervision at all times.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do you communicate with parents?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-in">We send daily reports with photos and notes so you always know how your child's day is going. We're also available by text or call during the day for any updates.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is your enrollment process?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-in">Start by scheduling a tour. After visiting, we'll provide an enrollment packet. Once completed, a deposit secures your child's spot. Space is limited due to our small group model.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is your sick policy?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-in">Children with fever, vomiting, or contagious illness must stay home and may return 24 hours after symptoms fully resolve. This policy protects all children in our care.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you offer part-time care?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-in">Yes! We offer part-time options with 2 or 3 flexible days per week. Contact us to discuss a schedule that works for your family's needs.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="f-brand">
+        <img src="logo.jpeg" alt="Flavia's Little Sprouts" class="f-logo-img" />
+        <span class="f-brand-name">Flavia's Little Sprouts</span>
+        <p>Family Daycare providing loving, professional care for children in Marin County. Growing with Love &amp; Care.</p>
+        <div class="f-social">
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Facebook">👍</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Flávia</a></li>
+          <li><a href="#schedule">Programs</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#enrollment">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#enrollment">Full-Time Care</a></li>
+          <li><a href="#enrollment">Part-Time Care</a></li>
+          <li><a href="#enrollment">Drop-In Care</a></li>
+          <li><a href="#about">Ages 4mo – 3yr</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <div class="f-contact-item"><span>📍</span><span>412 Wood Hollow Dr<br>Novato, CA 94945</span></div>
+        <div class="f-contact-item"><span>📞</span><a href="tel:4152460309">(415) 246-0309</a></div>
+        <div class="f-contact-item"><span>✉️</span><a href="mailto:Flaviaslittlesprouts@gmail.com">Flaviaslittlesprouts@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Flavia's Little Sprouts Family Daycare. All rights reserved.</span>
+      <span>Licensed Family Daycare · Marin County, California</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/14152460309" class="wa-float" title="WhatsApp" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+/* FAQ accordion */
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+/* Hamburger menu */
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobile-menu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+document.querySelectorAll('.mobile-link').forEach(link=>{
+  link.addEventListener('click',()=>{
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+
+/* Active nav highlight */
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id;});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.style.color=a.getAttribute('href')==='#'+cur?'var(--green)':'';
+  });
+});
+
+/* Scroll fade-in animations */
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll('section, .card, .sched-item, .gal-item, .saf-item, .opt, .faq-item, .logo-divider').forEach(el=>{
+  el.classList.add('fade-up');
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
