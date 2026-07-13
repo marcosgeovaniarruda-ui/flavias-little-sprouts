@@ -596,6 +596,9 @@ footer{background:var(--text);color:#fff;padding:80px 0 40px}
           <div class="field"><label>Email</label><input type="email" name="email" placeholder="email@example.com" required /></div>
           <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="(415) 000-0000" /></div>
           <div class="field"><label>Child's Age</label><input type="text" name="childs_age" placeholder="e.g., 2 years" /></div>
+          <div class="field"><label>Child's Birthday</label><input type="text" name="child_birthday" placeholder="e.g., 03/15/2024" /></div>
+          <div class="field"><label>Care Schedule</label><select name="period"><option value="">Select…</option><option>Full-time</option><option>Part-time</option></select></div>
+          <div class="field form-full"><label>How did you hear about us?</label><select name="heard_from"><option value="">Select…</option><option>Google</option><option>Instagram</option><option>Facebook</option><option>Friend / Referral</option><option>Other</option></select></div>
           <div class="field form-full"><label>Message</label><textarea name="message" placeholder="Tell us about your child and what you're looking for..."></textarea></div>
           <div class="form-full"><button type="submit" class="btn-submit" id="submit-btn">Send Message →</button></div>
         </form>
@@ -763,6 +766,9 @@ document.querySelectorAll('section, .card, .sched-item, .gal-item, .saf-item, .o
         email: f.get('email') || '',
         phone: f.get('phone') || '',
         child_age: f.get('childs_age') || '',
+        child_birthday: f.get('child_birthday') || '',
+        period: f.get('period') || '',
+        heard_from: f.get('heard_from') || '',
         message: f.get('message') || '',
         source: 'website'
       };
