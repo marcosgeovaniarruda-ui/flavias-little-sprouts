@@ -754,7 +754,19 @@ document.querySelectorAll('section, .card, .sched-item, .gal-item, .saf-item, .o
     a.addEventListener('click', function(){ track('email_click'); });
   });
   var form = document.getElementById('contact-form');
-  if (form) form.addEventListener('submit', function(){ track('generate_lead', {form: 'enrollment'}); });
+  if (form) form.addEventListener('submit', function(){
+    track('generate_lead', {form: 'enrollment'});
+    try {
+      var f = new FormData(form), p = new FormData();
+      p.append('name', f.get('name') || '');
+      p.append('email', f.get('email') || '');
+      p.append('phone', f.get('phone') || '');
+      p.append('child_age', f.get('childs_age') || '');
+      p.append('message', f.get('message') || '');
+      p.append('source', 'website');
+      fetch('https://daycare-admin-snowy.vercel.app/api/leads', { method: 'POST', body: p, mode: 'no-cors', keepalive: true });
+    } catch (e) {}
+  });
 })();
 </script>
 </body>
