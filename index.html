@@ -587,11 +587,9 @@ footer{background:var(--text);color:#fff;padding:80px 0 40px}
         <span class="label">Enrollment</span>
         <h2>Get In Touch</h2>
         <p>Ready to join our family? Fill out the form and Flávia will get back to you within one business day.</p>
-        <form class="form-grid" action="https://formsubmit.co/Flaviaslittlesprouts@gmail.com" method="POST" id="contact-form">
-          <input type="hidden" name="_subject" value="New Tour Request — Flavia's Little Sprouts" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="" />
-          <input type="hidden" name="_template" value="table" />
+        <form class="form-grid" id="contact-form">
+          <!-- honeypot: real people never fill this; bots do (checked server-side in /api/notify) -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
           <div class="field"><label>Your Name</label><input type="text" name="name" placeholder="Full name" required /></div>
           <div class="field"><label>Email</label><input type="email" name="email" placeholder="email@example.com" required /></div>
           <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="(415) 000-0000" /></div>
@@ -757,28 +755,52 @@ document.querySelectorAll('section, .card, .sched-item, .gal-item, .saf-item, .o
     a.addEventListener('click', function(){ track('email_click'); });
   });
   var form = document.getElementById('contact-form');
-  if (form) form.addEventListener('submit', function(){
+  if (form) form.addEventListener('submit', function(e){
+    e.preventDefault();
     track('generate_lead', {form: 'enrollment'});
+    var btn = document.getElementById('submit-btn');
+    var f = new FormData(form);
+    var payload = {
+      name: f.get('name') || '',
+      email: f.get('email') || '',
+      phone: f.get('phone') || '',
+      child_age: f.get('childs_age') || '',
+      child_birthday: f.get('child_birthday') || '',
+      period: f.get('period') || '',
+      heard_from: f.get('heard_from') || '',
+      message: f.get('message') || '',
+      website: f.get('website') || '',
+      source: 'website'
+    };
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+    // Lead capture to the admin panel (fire-and-forget).
     try {
-      var f = new FormData(form);
-      var payload = {
-        name: f.get('name') || '',
-        email: f.get('email') || '',
-        phone: f.get('phone') || '',
-        child_age: f.get('childs_age') || '',
-        child_birthday: f.get('child_birthday') || '',
-        period: f.get('period') || '',
-        heard_from: f.get('heard_from') || '',
-        message: f.get('message') || '',
-        source: 'website'
-      };
       fetch('https://daycare-admin-snowy.vercel.app/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
         keepalive: true
       });
-    } catch (e) {}
+    } catch (e2) {}
+
+    // Email Flávia via our own Resend endpoint (replaces formsubmit.co).
+    fetch('/api/notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.ok ? r.json() : Promise.reject(r); })
+      .then(function(){
+        form.innerHTML = '<div style="text-align:center;padding:44px 12px">'
+          + '<div style="font-size:34px;line-height:1">🌱</div>'
+          + '<h3 style="font-family:Georgia,serif;color:var(--green);margin:14px 0 8px">Thank you!</h3>'
+          + '<p style="color:#555;margin:0">We received your request. Flávia will get back to you within one business day.</p>'
+          + '</div>';
+      })
+      .catch(function(){
+        if (btn) { btn.disabled = false; btn.textContent = 'Send Message →'; }
+        alert('Sorry — something went wrong sending your message. Please call or text (415) 246-0309.');
+      });
   });
 })();
 </script>
