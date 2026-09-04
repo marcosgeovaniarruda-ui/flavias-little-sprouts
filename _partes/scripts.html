@@ -1,0 +1,197 @@
+<script>
+/* FAQ accordion */
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+/* Hamburger menu */
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobile-menu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+document.querySelectorAll('.mobile-link').forEach(link=>{
+  link.addEventListener('click',()=>{
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+
+/* Active nav highlight */
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id;});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.style.color=a.getAttribute('href')==='#'+cur?'var(--green)':'';
+  });
+});
+
+/* Scroll fade-in animations */
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll('section, .card, .sched-item, .gal-item, .saf-item, .opt, .faq-item, .logo-divider').forEach(el=>{
+  el.classList.add('fade-up');
+  observer.observe(el);
+});
+</script>
+<!-- Analytics event tracking (leads, CTA, calls, email) -->
+<script>
+(function(){
+  function track(name, params){
+    try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch(e){}
+    try { if (typeof window.clarity === 'function') window.clarity('event', name); } catch(e){}
+  }
+  document.querySelectorAll('a[href="#enrollment"]').forEach(function(a){
+    a.addEventListener('click', function(){ track('book_tour_click'); });
+  });
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+    a.addEventListener('click', function(){ track('call_click'); });
+  });
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+    a.addEventListener('click', function(){ track('email_click'); });
+  });
+  var form = document.getElementById('contact-form');
+  if (form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    track('generate_lead', {form: 'enrollment'});
+    var btn = document.getElementById('submit-btn');
+    var f = new FormData(form);
+    var payload = {
+      name: f.get('name') || '',
+      email: f.get('email') || '',
+      phone: f.get('phone') || '',
+      child_age: f.get('childs_age') || '',
+      child_birthday: f.get('child_birthday') || '',
+      period: f.get('period') || '',
+      heard_from: f.get('heard_from') || '',
+      message: f.get('message') || '',
+      website: f.get('website') || '',
+      source: 'website'
+    };
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+    // Lead capture to the admin panel (fire-and-forget).
+    try {
+      fetch('https://daycare-admin-snowy.vercel.app/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      });
+    } catch (e2) {}
+
+    // Email Flávia via our own Resend endpoint (replaces formsubmit.co).
+    fetch('/api/notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.ok ? r.json() : Promise.reject(r); })
+      .then(function(){
+        form.innerHTML = '<div style="text-align:center;padding:44px 12px">'
+          + '<div style="font-size:34px;line-height:1">🌱</div>'
+          + '<h3 style="font-family:Georgia,serif;color:var(--green);margin:14px 0 8px">Thank you!</h3>'
+          + '<p style="color:#555;margin:0">We received your request. Flávia will get back to you within one business day.</p>'
+          + '</div>';
+      })
+      .catch(function(){
+        if (btn) { btn.disabled = false; btn.textContent = 'Send Message →'; }
+        alert('Sorry — something went wrong sending your message. Please call or text (415) 246-0309.');
+      });
+  });
+})();
+</script>
+
+<script>
+/* Depoimentos enviados por familias: envio + exibicao dos aprovados */
+(function () {
+  var abrir = document.getElementById('tst-open');
+  var form  = document.getElementById('tst-form');
+  var msg   = document.getElementById('tst-msg');
+  var envio = document.getElementById('tst-send');
+  if (!abrir || !form) return;
+
+  abrir.addEventListener('click', function () {
+    form.hidden = false;
+    abrir.hidden = true;
+    var p = form.querySelector('input[name=name]');
+    if (p) p.focus();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = Object.fromEntries(new FormData(form).entries());
+    if (!d.name || !d.text || d.text.trim().length < 25) {
+      msg.className = 'tst-msg erro';
+      msg.textContent = 'Please add your name and tell us a bit more.';
+      return;
+    }
+    envio.disabled = true;
+    envio.textContent = 'Sending…';
+    msg.className = 'tst-msg';
+    msg.textContent = '';
+
+    fetch('/api/testimonial', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(d)
+    })
+      .then(function (r) { return r.json().catch(function(){ return {}; }); })
+      .then(function (r) {
+        if (r && r.ok) {
+          form.innerHTML = '<p class="tst-form-intro" style="margin:0;text-align:center">'
+            + 'Thank you! Flávia received your message and will review it before it appears on the site.</p>';
+          if (window.gtag) gtag('event', 'testimonial_submit');
+          if (window.clarity) clarity('event', 'testimonial_submit');
+        } else {
+          msg.className = 'tst-msg erro';
+          msg.textContent = (r && r.erro) || 'Could not send right now. Please try again.';
+          envio.disabled = false;
+          envio.textContent = 'Send to Flávia';
+        }
+      })
+      .catch(function () {
+        msg.className = 'tst-msg erro';
+        msg.textContent = 'Could not send right now. Please try again.';
+        envio.disabled = false;
+        envio.textContent = 'Send to Flávia';
+      });
+  });
+
+  /* mostra os aprovados junto com os depoimentos que ja existem */
+  var esc = function (s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  };
+
+  fetch('/api/testimonials')
+    .then(function (r) { return r.json(); })
+    .then(function (r) {
+      var lista = (r && r.depoimentos) || [];
+      if (!lista.length) return;
+      var grade = document.querySelector('#testimonials .grid-3');
+      if (!grade) return;
+      var vazio = document.getElementById('tst-empty');
+      if (vazio) vazio.hidden = true;
+      lista.forEach(function (d) {
+        var n = Math.max(1, Math.min(5, parseInt(d.estrelas, 10) || 5));
+        var card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML =
+          '<div class="stars">' + '\u2605'.repeat(n) + '</div>' +
+          '<blockquote>"' + esc(d.texto) + '"</blockquote>' +
+          '<div class="t-author"><strong>' + esc(d.nome) + '</strong>' +
+          (d.cidade ? '<span>' + esc(d.cidade) + '</span>' : '') + '</div>';
+        grade.appendChild(card);
+      });
+    })
+    .catch(function () {});
+})();
+</script>

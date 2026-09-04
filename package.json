@@ -1,0 +1,9 @@
+{
+  "name": "flavias-little-sprouts",
+  "private": true,
+  "description": "Site estático da creche. O package.json existe só para as funções em /api.",
+  "type": "module",
+  "dependencies": {
+    "@vercel/blob": "^2.6.1"
+  }
+}
